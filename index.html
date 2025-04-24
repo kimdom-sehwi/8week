@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>해파리-소녀 컬렉션</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: sans-serif;
+      background-color: #89c9f8;
+      overflow-x: hidden;
+    }
+
+    .top-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .oval-text {
+      background-color: #f5ff7d;
+      border: 2px solid black;
+      padding: 10px 60px;
+      border-radius: 9999px;
+      font-weight: bold;
+      font-size: 20px;
+      white-space: nowrap;
+    }
+
+    .year-box {
+      background-color: black;
+      color: white;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 2px;
+      position: absolute;
+      right: 20px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background-color: #89c9f8;
+      padding: 140px 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 60px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: flex-end;
+      max-width: 1718px;
+      margin: 0 auto;
+    }
+
+    .hanja-compressed {
+      font-size: 100px;
+      font-weight: 900;
+      color: white;
+      transform: scaleX(0.6);
+      display: inline-block;
+      line-height: 1;
+      margin-right: 20px;
+    }
+
+    .main-title {
+      font-size: 120px;
+      font-weight: 900;
+      color: black;
+      white-space: nowrap;
+    }
+
+.subtitle-row {
+  max-width: 1718px;
+  margin: 0 20px 0 auto; 
+  text-align: right;
+}
+
+    .subtitle-row .line1 {
+      font-size: 48px;
+      font-weight: bold;
+      color: black;
+      line-height: 1.5;
+    }
+
+    .subtitle-row .line2 {
+      font-size: 16px;
+      color: white;
+      margin-top: 10px;
+    }
+    .jelly-full {
+     padding: 0;
+     margin: 0;
+     }
+
+    .jelly-img {
+     width: 100vw;
+     height: 100vh;
+     object-fit: contain;
+     display: block;
+     }
+
+    .content {
+      background-color: #89c9f8;
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .content img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+    }
+
+    .section-final {
+      background-color: #89c9f8;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .circle-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .circle-item {
+      width: 180px;
+      height: 250px;
+      background-color: white;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .circle-item img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .circle-item span {
+      font-weight: bold;
+      font-size: 14px;
+      background-color: black;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 10px;
+    }
+
+    .footer-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .footer-images img {
+      height: 120px;
+    }
+    .book-section {
+      background: #f4f4f4;
+      padding: 0;
+    }
+
+    .book-hero img {
+      width: 100%;
+      display: block;
+    }
+
+.book-content {
+  background: #d1405b;
+  padding: 60px 20px;
+  text-align: center;
+}
+    .book-message {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      color: white;
+    }
+
+    .book-message h3 {
+      font-size: 50px;
+      color: #ffe0e0;
+      margin-bottom: 20px;
+    }
+
+    .book-message p {
+      line-height: 1.8;
+      font-size: 20px;
+    }
+.book-icons {
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  flex-wrap: nowrap;       /* 줄바꿈 없이 한 줄에 나열 */
+  gap: 10px;               /* 이미지 사이 간격 */
+  padding: 20px 0;
+}
+
+.book-icons img {
+  width: 60px;   /* 원하는 크기로 조정 */
+  height: auto;
+}
+    .book-icons img {
+      margin: 40px auto;
+      display: block;
+      max-width: 500px;
+    }
+
+    .book-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .book-column {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .book-column img {
+      max-width: 160px;
+    }
+
+    .book-column ol {
+      text-align: left;
+      background: #89c9f8;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .book-column ol li {
+      margin-bottom: 10px;
+    }
+    .section-final {
+  background-color: #89c9f8;
+  padding: 80px 20px;
+}
+
+.product-header {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-align: left;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.label-circle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.product-shape {
+  width: 200px;
+  height: 270px;
+  border-radius: 50%;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.shape-red {
+  background-color: #d4485d;
+}
+
+.shape-yellow {
+  background-color: #f8ff69;
+}
+
+.product-shape img {
+  width: 90px;
+  height: auto;
+}
+
+.product-tag {
+  position: absolute;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.tag-study {
+  top: 10px;
+  right: 10px;
+}
+
+.tag-steady {
+  bottom: 10px;
+  left: 10px;
+}
+
+.tag-survey {
+  top: 10px;
+  left: 10px;
+}
+
+.girl-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px 0 30px;
+}
+
+.girl-row img {
+  height: 120px;
+}
+.book-intro {
+  background-color:#d1405b;  
+  padding: 80px 0;
+  text-align: center;
+}
+
+.intro-image {
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-footer {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+.octo-line-repeat {
+  background-color: #cc3f5b;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.octo-line-repeat img {
+  height: 60px;
+  display: inline-block;
+}
+.book-section {
+    background-color: #cc3b5c;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .book-section img {
+    height: 320px;
+    object-fit: contain;
+  }
+
+  .book-text-box {
+    background: linear-gradient(to bottom, #ffffff, #89c9f8);
+    border: 2px solid black;
+    padding: 30px 40px;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .book-text-box p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  .book-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .book-step .num-circle {
+    background-color: #89c9f8;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  </style>
+</head>
+<body>
+  <!-- 상단 배너 -->
+  <div class="top-banner">
+    <div class="oval-text">해파리-소녀가 되고 싶은 소녀에게는 절대적으로 필요합니다!</div>
+    <div class="year-box">2025</div>
+  </div>
+
+  <!-- 히어로 영역 -->
+  <section class="hero">
+    <div class="title-row">
+      <div class="hanja-compressed">澕月</div>
+      <div class="main-title">해파리-소녀 컬렉션</div>
+    </div>
+    <div class="subtitle-row">
+      <div class="line1">
+        치명적인<br />
+        해파리-소녀가 되는<br />
+        단 하나 뿐인 컬렉션
+      </div>
+      <div class="line2">실제 해파리가 되지는 않으니 걱정마세요</div>
+    </div>
+  </section>
+
+  <!-- 설명 이미지 영역 -->
+  <section class="content jelly-full">
+  <img src="img-2.jpg" alt="해파리-소녀 설명 이미지" />
+</section>
+
+
+  <!-- 상품 + 소녀 섹션 -->
+<section class="section-final">
+  <div class="product-header">
+    해파리-소녀 컬렉션
+  </div>
+
+  <div class="product-container">
+    <div class="product-item">
+      <div class="product-label">
+        <div class="label-circle"></div>
+        해파리-소녀 대백과
+      </div>
+      <div class="product-shape shape-red">
+        <span class="product-tag tag-study">STUDY</span>
+        <img src="book.png" alt="대백과" />
+      </div>
+    </div>
+
+    <div class="product-item">
+      <div class="product-label">
+        <div class="label-circle"></div>
+        해파리-소녀 알람시계
+      </div>
+      <div class="product-shape shape-yellow">
+        <span class="product-tag tag-steady">STEADY</span>
+        <img src="clock.heic" alt="알람시계" />
+      </div>
+    </div>
+
+    <div class="product-item">
+      <div class="product-label">
+        <div class="label-circle"></div>
+        해파리-소녀 측정기
+      </div>
+      <div class="product-shape shape-red">
+        <span class="product-tag tag-survey">SURVEY</span>
+        <img src="device.heic" alt="측정기" />
+      </div>
+    </div>
+  </div>
+
+  <div class="girl-row">
+    <img src="tempImageD6EOzg.heic" alt="girl" />
+    <img src="tempImageD6EOzg.heic" alt="girl" />
+    <img src="tempImageD6EOzg.heic" alt="girl" />
+    <img src="tempImageD6EOzg.heic" alt="girl" />
+  </div>
+
+  <div class="product-footer">상품 이미지를 선택하여 상세 정보를 확인하세요</div>
+</section>
+<section class="book-intro">
+  <div class="intro-image-wrapper">
+    <img src="book.png" alt="해파리-소녀 대백과 소개 이미지">
+  </div>
+</section>
+    </div>
+    <div class="book-content">
+      <div class="book-message">
+        <h3>생각은 가볍게, 마음은 반짝이게</h3>
+        <p>
+          세상의 속도에 휩쓸리지 않고<br />
+          감정에 솔직하게, 기준 없이 유영하는<br />
+          해파리-소녀가 되는 법.<br />
+          뇌도, 심장도, 뼈도 없이 오래 살아가는 해파리처럼<br />
+          부드럽고 자유롭게, 나만의 방식으로 살아가는 법을 알려주는 감정 수업.
+        </p>
+      </div>
+<div class="book-icons"></div>
+<script>
+  const container = document.querySelector('.book-icons');
+  const octoCount = 12;
+  for (let i = 0; i < octoCount; i++) {
+    const img = document.createElement('img');
+    img.src = 'hepari.png'; // 실제 이미지 경로로 수정
+    img.alt = '문어';
+    container.appendChild(img);
+  }
+</script>
+
+</body>
+</html>
+      <section class="book-section">
+  <img src="book.png" alt="해파리 대백과" />
+
+  <div class="book-text-box">
+    <div class="book-step"><div class="num-circle">1</div> 들어가는 말</div>
+    <div class="book-step"><div class="num-circle">2</div> 해파리-소녀란</div>
+    <div class="book-step"><div class="num-circle">3</div> 해파리-소녀에 대한 자세</div>
+    <div class="book-step"><div class="num-circle">4</div> 해파리-소녀의 기본 소양</div>
+    <div class="book-step"><div class="num-circle">5</div> 해파리-소녀 실천 방식</div>
+    <div class="book-step"><div class="num-circle">6</div> 마치는 말</div>
+  </div>
+
+  <img src="book.png" alt="해파리 대백과" />
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
